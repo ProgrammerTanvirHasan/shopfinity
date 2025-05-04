@@ -1,0 +1,52 @@
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .autoplay-progress {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    width: 48px;
+    height: 48px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .autoplay-progress svg {
+    --progress: 1;
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+  }
+  
+  .autoplay-progress circle {
+    fill: none;
+    stroke: #007bff;
+    stroke-width: 4;
+    stroke-dasharray: 125.6;
+    stroke-dashoffset: calc(125.6 * var(--progress));
+    transition: stroke-dashoffset 0.3s linear;
+  }
+  
