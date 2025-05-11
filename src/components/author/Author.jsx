@@ -1,8 +1,13 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import Swal from "sweetalert2";
 
 const Author = () => {
+  const session = useSession();
+  const user = session?.data?.user;
+  const email = user?.email;
+
   const handleMail = async (e) => {
     e.preventDefault();
     const data = {
@@ -60,6 +65,7 @@ const Author = () => {
               </label>
               <input
                 type="email"
+                defaultValue={email}
                 name="email"
                 required
                 placeholder="you@example.com"

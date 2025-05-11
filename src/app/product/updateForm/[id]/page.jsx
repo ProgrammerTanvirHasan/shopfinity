@@ -62,7 +62,7 @@ const Page = ({ params }) => {
 
     try {
       const resp = await axios.post(
-        `http://localhost:3000/api/products/${id}`,
+        `${process.env.local.NEXT_PUBLIC_BASE_URL}/api/products/${id}`,
         updateData,
         {
           headers: {

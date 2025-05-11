@@ -4,17 +4,17 @@ import bcrypt from "bcrypt";
 import { connectDB } from "@/lib/connectDB";
 
 export const authOptions = {
-  secret: process.env.NEXT_PUBLIC_AUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   session: {
     strategy: "jwt",
-    maxAge: 30 * 24 * 60 * 60, // 30 days
+    maxAge: 30 * 24 * 60 * 60,
   },
   providers: [
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "text" },
-        password: { label: "Password", type: "password" },
+        email: {},
+        password: {},
       },
       async authorize(credentials) {
         const { email, password } = credentials;
@@ -70,9 +70,8 @@ export const authOptions = {
   },
   pages: {
     signIn: "/signin",
-    error: "/signin", // Optional: reuse the sign-in page to display auth errors
+    error: "/signin",
   },
-  secret: process.env.NEXTAUTH_SECRET, // Ensure this is set in .env
 };
 
 const handler = NextAuth(authOptions);

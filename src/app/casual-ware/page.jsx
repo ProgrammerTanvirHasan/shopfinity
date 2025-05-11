@@ -1,11 +1,13 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 const Page = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const session = useSession();
+  const email = session?.data?.user?.email;
   const category = "casual-ware";
 
   useEffect(() => {
@@ -27,6 +29,39 @@ const Page = () => {
 
     fetchProducts();
   }, [category]);
+
+  const handleAddToCart = async (product) => {
+    if (!email) {
+      alert("Please login first.");
+      return;
+    }
+    const cartItem = {
+      userEmail: email,
+      productId: product._id,
+      title: product.title,
+      amount: product.amount,
+    };
+
+    try {
+      const res = await fetch("/api/cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cartItem),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("Product added to cart!");
+      } else {
+        console.error("Failed to add to cart:", data.message);
+      }
+    } catch (err) {
+      console.error("Error adding to cart:", err);
+    }
+  };
 
   if (loading) {
     return (
@@ -64,7 +99,10 @@ const Page = () => {
                 <p className="text-lg text-gray-900 font-bold mt-2 hover:border-2 hover:border-[#673DE6] p-1 hover:shadow-[0px_4px_15px_rgba(103,_61,_230,_0.5)]">
                   {product.amount}
                 </p>
-                <button className="w-full bg-red-500 text-white py-2 mt-4 rounded-md hover:bg-red-600 transition-all duration-200">
+                <button
+                  onClick={() => handleAddToCart(product)}
+                  className="w-full bg-red-500 text-white py-2 mt-4 rounded-md hover:bg-red-600 transition-all duration-200"
+                >
                   Add to Cart
                 </button>
               </div>
