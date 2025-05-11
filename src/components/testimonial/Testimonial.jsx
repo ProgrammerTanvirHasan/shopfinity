@@ -100,7 +100,7 @@ const Testimonial = () => {
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
               <div className="shadow-lg p-6 bg-white rounded-lg border h-full flex flex-col justify-between text-center">
-                <FaQuoteLeft className="text-orange-400 text-2xl mb-4 mx-auto" />
+                <FaQuoteLeft className="text-[#fea928]/40 text-2xl mb-4 mx-auto" />
                 <p className="text-gray-600 italic mb-6">
                   "{testimonial.story}"
                 </p>

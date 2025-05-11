@@ -9,48 +9,48 @@ import "./Banner.css";
 
 const slides = [
   {
-    title: "Step Into Style",
-    subtitle: "Explore the hottest trends and elevate your wardrobe today.",
-    img: "https://i.ibb.co.com/xqKrqx5N/vertical-two-cheerful-girls-sweaters-with-packages-rejoices-white-wall-171337-2679-1-removebg-previe.png",
-  },
-  {
-    title: "Deals You Can't Miss",
-    subtitle: "Catch exclusive discounts on fashion and lifestyle essentials.",
-    img: "https://i.ibb.co.com/twLnMkzB/two-happy-girls-sweaters-having-fun-with-shopping-trolley-megaphone-white-wall-171337-2714-removebg.png",
-  },
-  {
-    title: "Shipping That Delights",
-    subtitle: "Free, fast, and reliable delivery on every order above $50.",
-    img: "https://i.ibb.co.com/B2NnqC4d/happy-beautiful-couple-posing-with-shopping-bags-violet-496169-2215-removebg-preview.png",
-  },
-  {
-    title: "Trusted Brands, Top Quality",
-    subtitle: "Shop from a curated selection of the world’s best brands.",
-    img: "https://i.ibb.co.com/1JtJw6NF/flat-colorful-sale-background-23-2147724692-removebg-preview.png",
-  },
-  {
-    title: "Flash Sale Frenzy",
-    subtitle: "Limited-time offers you won’t want to miss. Act fast!",
+    title: "Welcome to Shopfinity",
+    subtitle: "Your one-stop destination for fashion, tech, home, and more.",
     img: "https://i.ibb.co.com/YvChDXZ/elegant-brunette-womans-wears-black-dress-holding-shopping-bags-118454-16821-removebg-preview.png",
   },
   {
-    title: "Tech That Excites",
-    subtitle: "Discover the latest gadgets built for smarter living.",
+    title: "Unmissable Offers",
+    subtitle: "Daily deals and limited-time steals—only on Shopfinity.",
+    img: "https://i.ibb.co.com/twLnMkzB/two-happy-girls-sweaters-having-fun-with-shopping-trolley-megaphone-white-wall-171337-2714-removebg.png",
+  },
+  {
+    title: "Fast & Free Shipping",
+    subtitle: "Enjoy free delivery on orders over $50 — always on time.",
+    img: "https://i.ibb.co.com/B2NnqC4d/happy-beautiful-couple-posing-with-shopping-bags-violet-496169-2215-removebg-preview.png",
+  },
+  {
+    title: "Top Brands, Handpicked for You",
+    subtitle: "Shopfinity curates only the best in quality and style.",
+    img: "https://i.ibb.co.com/1JtJw6NF/flat-colorful-sale-background-23-2147724692-removebg-preview.png",
+  },
+  {
+    title: "Flash Frenzy",
+    subtitle: "Act fast — trending items at jaw-dropping prices.",
+    img: "https://i.ibb.co.com/YvChDXZ/elegant-brunette-womans-wears-black-dress-holding-shopping-bags-118454-16821-removebg-preview.png",
+  },
+  {
+    title: "Smart Living Starts Here",
+    subtitle: "Explore innovative gadgets designed for modern life.",
     img: "https://i.ibb.co.com/93c1PcbG/birtday-girl-amazing-outfit-looking-straight-holding-gifts-176420-8953-removebg-preview.png",
   },
   {
-    title: "Cozy Up Your Home",
-    subtitle: "From décor to daily essentials — all in one place.",
+    title: "Make Your Home Shine",
+    subtitle: "Decor, essentials, and cozy comforts — all in one place.",
     img: "https://i.ibb.co.com/fzmw0Xv3/surprised-girl-pink-culottes-posing-with-trolley-full-multi-colored-packages-with-new-clothes-197531.png",
   },
   {
-    title: "Redefine Your Style",
-    subtitle: "Modern fashion designed to turn heads and inspire confidence.",
+    title: "Refresh Your Wardrobe",
+    subtitle: "Trendy, confident, and uniquely you — only at Shopfinity.",
     img: "https://i.ibb.co.com/VcS1yLg2/shopping-two-women-holding-colored-bags-black-friday-118454-5035-removebg-preview.png",
   },
   {
-    title: "Here for You Always",
-    subtitle: "24/7 support and effortless returns for stress-free shopping.",
+    title: "We’re Here for You",
+    subtitle: "24/7 support, hassle-free returns, and total peace of mind.",
     img: "https://i.ibb.co.com/5DYYtTy/beautiful-young-hipster-woman-holding-colorful-paper-shopping-bags-285396-1884-removebg-preview.png",
   },
 ];
@@ -81,30 +81,23 @@ const Banner = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div
-              className="w-screen h-[75vh] flex justify-between lg:justify-around px-4"
-              style={{
-                backgroundImage: "url('/background.png')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center justify-between text-white text-center lg:text-left gap-6">
-                <div className="max-w-xl  p-2 text-white opacity-70">
-                  <h2 className="text-white text-4xl lg:text-5xl font-bold mb-4">
+            <div className="relative w-screen h-[75vh] flex justify-between lg:justify-around px-4 overflow-hidden">
+              <div className="absolute top-0 right-0 w-full h-full -z-10">
+                <div className="bg-[#fea928]/40 w-[150%] h-[150%] rounded-3xl rotate-45 translate-x-1/4 -translate-y-1/2"></div>
+              </div>
+
+              <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center justify-between text-white text-center lg:text-left gap-6 z-10">
+                <div className="max-w-xl p-2 text-black">
+                  <h2 className="text-black text-4xl lg:text-5xl font-bold mb-4">
                     {slide.title}
                   </h2>
-                  <p className="text-gray-200 text-lg mb-6">{slide.subtitle}</p>
-                  <button className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition">
-                    Order Now
-                  </button>
+                  <p className="text-black text-lg mb-6">{slide.subtitle}</p>
                 </div>
-                <div className="max-w-[500px] max-h-[600px] ">
+                <div className="max-w-[500px] max-h-[600px]">
                   <img
                     src={slide.img}
                     alt={slide.title}
-                    className="min-w-[300px] max-w-[350px] min-h-[400px] max-h-[450px] "
+                    className="min-w-[300px] max-w-[350px] min-h-[400px] max-h-[450px]"
                   />
                 </div>
               </div>

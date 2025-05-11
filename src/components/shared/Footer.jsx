@@ -6,7 +6,7 @@ import { CiLocationArrow1 } from "react-icons/ci";
 import { IoIosPhonePortrait } from "react-icons/io";
 const Footer = () => {
   return (
-    <div className="relative w-full h-[250px] bg-[#15202B] text-white ">
+    <div className="relative w-full h-[250px] bg-[#1A1A1A] text-white ">
       <div className="grid grid-cols-3 gap-4 container mx-auto flex pt-8 px-4">
         <div>
           <div className="flex gap-2 py-2 ml-4 text-white items-center">
@@ -21,10 +21,10 @@ const Footer = () => {
         <div className="py-2">
           <p className=" text-xl">Important Links</p>
           <div className="text-sm text-gray-500 ">
-            <p>Home</p>
-            <p>About</p>
-            <p>Contract</p>
-            <p>Blog</p>
+            <p className="hover:text-orange-300">Home</p>
+            <p className="hover:text-orange-300">About</p>
+            <p className="hover:text-orange-300">Contract</p>
+            <p className="hover:text-orange-300">Blog</p>
           </div>
         </div>
 

@@ -1,5 +1,5 @@
+import Author from "../author/Author";
 import Banner from "../banner/Banner";
-import SeasonedWear from "../seasonedWear/SeasonedWer";
 
 import SellingProduct from "../sellingProduct/SellingProduct";
 import Style from "../style/Style";
@@ -8,11 +8,11 @@ import TopRated from "../topRated/TopRated";
 
 const HomePage = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 ">
       <Banner></Banner>
       <SellingProduct></SellingProduct>
       <TopRated></TopRated>
-      <SeasonedWear></SeasonedWear>
+      <Author></Author>
       <Testimonial></Testimonial>
       <Style></Style>
     </div>

@@ -34,7 +34,7 @@ const TopRated = () => {
         {products.map((product) => (
           <div
             key={product.id}
-            className="card bg-base-100 shadow-xl hover:shadow-xl transition"
+            className="card bg-base-100  shadow-xl hover:scale-105 transition py-4"
           >
             <figure className="px-4 pt-4">
               <img
@@ -50,11 +50,6 @@ const TopRated = () => {
                 {product.rating % 1 !== 0 && "½"}
               </div>
               <p className="text-gray-600">{product.description}</p>
-              <div className="card-actions justify-center mt-4 mb-2">
-                <button className="bg-orange-300 p-2 text-white">
-                  Buy Now
-                </button>
-              </div>
             </div>
           </div>
         ))}
