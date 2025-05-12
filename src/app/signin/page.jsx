@@ -26,15 +26,15 @@ const SignIn = () => {
     });
 
     if (res?.error) {
-      setError(res.error); 
+      setError(res.error);
     } else {
-      router.push("/"); 
+      router.push("/");
     }
   };
 
   return (
-    <div className="min-h-screen w-full flex justify-center items-center bg-base-300 pt-4 pb-12">
-      <div className="w-[75vh] h-[100vh] border rounded-md shadow-md flex flex-col justify-center px-10 py-6 bg-white">
+    <div className="min-h-screen w-full flex justify-center mt-8  items-center bg-base-300 pt-4 pb-12">
+      <div className="w-[85vh] h-[100vh] border-t-64 border-red-600  rounded-2xl shadow-md flex flex-col justify-center px-10 py-6 bg-white">
         <h2 className="text-2xl font-bold text-center text-red-800 mb-6">
           Welcome Back!
         </h2>

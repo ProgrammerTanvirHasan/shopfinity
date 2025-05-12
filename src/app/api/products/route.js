@@ -1,7 +1,6 @@
 import { connectDB } from "@/lib/connectDB";
 import { NextResponse } from "next/server";
 
-
 export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
   const page = parseInt(searchParams.get("page")) || 1;
@@ -13,7 +12,13 @@ export const GET = async (req) => {
     const postCollection = db.collection("allPost");
 
     const total = await postCollection.countDocuments();
-    const posts = await postCollection.find().skip(skip).limit(limit).toArray();
+
+    const posts = await postCollection
+      .find()
+      .sort({ _id: -1 }) // newest products first
+      .skip(skip)
+      .limit(limit)
+      .toArray();
 
     return NextResponse.json({
       products: posts,
@@ -27,4 +32,3 @@ export const GET = async (req) => {
     );
   }
 };
-
