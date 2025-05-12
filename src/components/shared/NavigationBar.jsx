@@ -19,6 +19,7 @@ const NavigationBar = () => {
 
   const commonLinks = [
     { title: "Home", path: "/" },
+    { title: "About Us", path: "/about" },
     { title: "Top Rated", path: "/topRated" },
     { title: "Kids Wear", path: "/kidswear" },
     { title: "Mens Wear", path: "/menswear" },
@@ -47,8 +48,8 @@ const NavigationBar = () => {
       <ul className="hidden lg:flex gap-6 text-black font-medium items-center">
         {commonLinks.map((link) => (
           <Link
-            className={`hover:text-orange-400 ${
-              pathname === link.path ? "text-orange-300" : ""
+            className={`hover:text-orange-300 ${
+              pathname === link.path ? "text-orange-500" : ""
             }`}
             key={link.path}
             href={link.path}
@@ -76,8 +77,8 @@ const NavigationBar = () => {
                 <Link
                   key={link.path}
                   href={link.path}
-                  className={`block px-4 py-2 text-sm hover:text-orange-400 ${
-                    pathname === link.path ? "text-orange-300" : ""
+                  className={`block px-4 py-2 text-sm hover:text-orange-300 ${
+                    pathname === link.path ? "text-orange-500" : ""
                   }`}
                 >
                   {link.title}
@@ -105,16 +106,16 @@ const NavigationBar = () => {
               <div className="absolute mt-2 py-2 w-40 z-50 bg-white shadow-md rounded">
                 <Link
                   href="/admin"
-                  className={`block px-4 py-2 text-sm hover:text-orange-400 ${
-                    pathname === "/admin" ? "text-orange-300" : ""
+                  className={`block px-4 py-2 text-sm hover:text-orange-300 ${
+                    pathname === "/admin" ? "text-orange-400" : ""
                   }`}
                 >
                   Create form
                 </Link>
                 <Link
                   href="/product"
-                  className={`block px-4 py-2 text-sm hover:text-orange-400 ${
-                    pathname === "/product" ? "text-orange-300" : ""
+                  className={`block px-4 py-2 text-sm hover:text-orange-300 ${
+                    pathname === "/product" ? "text-orange-500" : ""
                   }`}
                 >
                   Product
@@ -125,11 +126,11 @@ const NavigationBar = () => {
         ) : user ? (
           <Link
             href="/orders"
-            className={`hover:text-orange-400 ${
-              pathname === "/orders" ? "text-orange-300" : ""
+            className={`hover:text-orange-300 ${
+              pathname === "/orders" ? "text-orange-500" : ""
             }`}
           >
-            My Orders
+            My Product
           </Link>
         ) : null}
       </ul>
@@ -154,12 +155,12 @@ const NavigationBar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="top-full left-0 w-64 border-t lg:hidden z-50 bg-white shadow-md absolute">
+        <div className="top-full left-0 w-64 border-t lg:hidden z-50  absolute">
           <ul className="flex flex-col gap-4 p-4 text-black font-medium">
             {commonLinks.map((link) => (
               <Link
-                className={`hover:text-orange-400 pl-2 rounded-xl ${
-                  pathname === link.path ? "text-orange-300" : ""
+                className={`hover:text-orange-300 hover:bg-black hover:text-white pl-2 rounded-xl ${
+                  pathname === link.path ? "text-orange-500" : ""
                 }`}
                 key={link.path}
                 href={link.path}
@@ -183,13 +184,13 @@ const NavigationBar = () => {
                 />
               </button>
               {categoryDropdown && (
-                <div className="ml-4 mt-2 space-y-2">
+                <div className="ml-16 mt-2 space-y-2">
                   {categoryLinks.map((link) => (
                     <Link
                       key={link.path}
                       href={link.path}
-                      className={`block px-2 py-1 text-sm hover:text-orange-400 rounded ${
-                        pathname === link.path ? "text-orange-300" : ""
+                      className={`block px-2 py-1 text-sm hover:bg-black hover:text-white hover:text-orange-300 rounded ${
+                        pathname === link.path ? "text-orange-500" : ""
                       }`}
                       onClick={() => setMenuOpen(false)}
                     >
@@ -215,11 +216,11 @@ const NavigationBar = () => {
                   />
                 </button>
                 {adminDropdown && (
-                  <div className="ml-4 mt-2 space-y-2">
+                  <div className="ml-16 mt-2 space-y-2 ">
                     <Link
                       href="/admin"
-                      className={`block px-2 py-1 text-sm hover:text-orange-400 rounded ${
-                        pathname === "/admin" ? "text-orange-300" : ""
+                      className={`block px-2 py-1 text-sm hover:bg-black hover:text-white rounded ${
+                        pathname === "/admin" ? "text-orange-500" : ""
                       }`}
                       onClick={() => setMenuOpen(false)}
                     >
@@ -227,8 +228,8 @@ const NavigationBar = () => {
                     </Link>
                     <Link
                       href="/product"
-                      className={`block px-2 py-1 text-sm hover:text-orange-400 rounded ${
-                        pathname === "/product" ? "text-orange-300" : ""
+                      className={`block px-2 py-1 text-sm hover:bg-black hover:text-white rounded ${
+                        pathname === "/product" ? "text-orange-500" : ""
                       }`}
                       onClick={() => setMenuOpen(false)}
                     >
@@ -245,7 +246,7 @@ const NavigationBar = () => {
                 }`}
                 onClick={() => setMenuOpen(false)}
               >
-                My Orders
+                My Product
               </Link>
             ) : null}
           </ul>

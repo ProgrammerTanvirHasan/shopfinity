@@ -69,3 +69,34 @@ export async function GET(req) {
     );
   }
 }
+
+export async function DELETE(req) {
+  try {
+    const { userEmail } = await req.json();
+
+    if (!userEmail) {
+      return NextResponse.json(
+        { message: "Missing userEmail" },
+        { status: 400 }
+      );
+    }
+
+    const db = await connectDB();
+    const result = await db.collection("cart").deleteMany({ userEmail });
+
+    if (result.deletedCount === 0) {
+      return NextResponse.json(
+        { message: "No items found for this email" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(
+      { message: "Items deleted", deletedCount: result.deletedCount },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error deleting cart items:", error);
+    return NextResponse.json({ message: "Server error" }, { status: 500 });
+  }
+}

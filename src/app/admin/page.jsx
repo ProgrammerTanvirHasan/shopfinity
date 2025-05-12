@@ -6,51 +6,53 @@ import Swal from "sweetalert2";
 const AdminPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const title = e.target.title.value;
-    const category = e.target.category.value;
-    const amount = e.target.amount.value;
-    const imageFile = e.target.image.files[0];
+    const form = e.target;
+    const title = form.title.value;
+    const category = form.category.value;
+    const amount = form.amount.value;
+    const imageFile = form.image.files[0];
+
     const formData = new FormData();
     formData.append("image", imageFile);
 
-    const response = await axios.post(
-      `https://api.imgbb.com/1/upload?key=a9b9160b05e3d4e68e60f154f621c349`,
-      formData
-    );
+    let postImage;
+    try {
+      const response = await axios.post(
+        `https://api.imgbb.com/1/upload?key=a9b9160b05e3d4e68e60f154f621c349`,
+        formData
+      );
+      postImage = response.data.data.display_url;
+    } catch (error) {
+      Swal.fire({
+        title: "Image Upload Failed",
+        text: error.response?.data?.error?.message || "Could not upload image.",
+        icon: "error",
+      });
+      return;
+    }
 
-    const postImage = response?.data?.data?.display_url;
-
-    const postData = {
-      title,
-      category,
-      amount,
-      postImage,
-    };
-    console.log(postData);
+    const postData = { title, category, amount, postImage };
 
     try {
       const resp = await axios.post(
         `http://localhost:3000/api/admin`,
         postData,
         {
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
         }
       );
 
       if (resp.status === 200) {
         Swal.fire({
           title: "Added",
-          text: "Published you post successfully",
+          text: "Published your post successfully",
           icon: "success",
-          draggable: true,
         });
-        e.target.reset("");
+        e.target.reset();
       }
     } catch (error) {
       Swal.fire({
-        title: "Error signing up",
+        title: "Error posting data",
         text: error.response?.data?.message || "Something went wrong!",
         icon: "error",
       });

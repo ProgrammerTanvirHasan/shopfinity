@@ -1,3 +1,8 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+
 const products = [
   {
     id: 1,
@@ -16,42 +21,67 @@ const products = [
   {
     id: 3,
     title: "Women shirt",
-    image: "https://i.ibb.co.com/hR3RmzDQ/render-2.png",
+    image: "https://i.ibb.co/hR3RmzDQ/render-2.png",
     description: "Trendy accessories to complete your look.",
     rating: 4.2,
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.95, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  }),
+};
+
 const TopRated = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl text-black font-bold mb-2">Top Rated Products</h2>
-      <p className="mb-6 text-gray-600">
-        Check out the most loved items from our collection.
-      </p>
+    <div className="container mx-auto px-4 py-12 bg-gradient-to-b from-white via-gray-50 to-white">
+      <div className="text-center mb-10">
+        <h2 className="text-3xl font-bold text-gray-800">Top Rated Products</h2>
+        <p className="text-gray-500 mt-2">
+          Check out the most loved items from our collection.
+        </p>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map((product) => (
-          <div
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {products.map((product, index) => (
+          <motion.div
             key={product.id}
-            className="card bg-base-100  shadow-xl hover:scale-105 transition py-4"
+            custom={index}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:border-indigo-500 border border-transparent"
           >
-            <figure className="px-4 pt-4">
+            <div className="overflow-hidden">
               <img
                 src={product.image}
                 alt={product.title}
-                className="rounded-xl h-52 object-cover w-full"
+                className="w-full h-56 object-cover transition-transform duration-300 hover:scale-105"
               />
-            </figure>
-            <div className="card-body text-center">
-              <h2 className="card-title text-black">{product.title}</h2>
-              <div className="text-yellow-500 text-sm mb-2">
-                {"★".repeat(Math.floor(product.rating))}
-                {product.rating % 1 !== 0 && "½"}
-              </div>
-              <p className="text-gray-600">{product.description}</p>
             </div>
-          </div>
+            <div className="p-5 text-center">
+              <h3 className="text-lg font-semibold text-gray-800 hover:border hover:border-indigo-500 hover:shadow-2xl">
+                {product.title}
+              </h3>
+              <div className="flex justify-center text-yellow-400 mt-1 mb-2 text-base">
+                {"★".repeat(Math.floor(product.rating))}
+                {product.rating % 1 !== 0 && <span>½</span>}
+              </div>
+              <p className="text-sm text-gray-600 hover:border hover:border-indigo-500 hover:shadow-2xl">
+                {product.description}
+              </p>
+            </div>
+          </motion.div>
         ))}
       </div>
     </div>

@@ -1,10 +1,10 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from "bcrypt";
+
 import { connectDB } from "@/lib/connectDB";
 
 export const authOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: "LSDF053450FGD553FSDFS",
   session: {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60,
@@ -30,7 +30,7 @@ export const authOptions = {
           throw new Error("User not found");
         }
 
-        const isValid = await bcrypt.compare(password, user.password);
+        const isValid = password === user.password;
 
         if (!isValid) {
           throw new Error("Incorrect password");

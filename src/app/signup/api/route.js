@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import bcrypt from "bcrypt";
+
 import { connectDB } from "@/lib/connectDB";
 
 export const POST = async (request) => {
@@ -25,12 +25,11 @@ export const POST = async (request) => {
       );
     }
 
-    const hashedPassword = await bcrypt.hash(password, 14);
     await userCollection.insertOne({
       name,
       email,
       image,
-      password: hashedPassword,
+      password,
       role: "User",
     });
 

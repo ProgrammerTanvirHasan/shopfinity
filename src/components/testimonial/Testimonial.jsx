@@ -19,7 +19,7 @@ const testimonials = [
     id: 2,
     name: "Tanvir Alam",
     story:
-      "I’ve never had such a smooth return process. Shopfinity's support team was  helpful—definitely shopping here again.",
+      "I’ve never had such a smooth return process. Shopfinity's support team was helpful—definitely shopping here again.",
     location: "Kazir Dewri, Chattogram",
   },
   {
@@ -33,7 +33,7 @@ const testimonials = [
     id: 4,
     name: "Rezaul Karim",
     story:
-      "As a busy professional, I appreciate the fast delivery and reliable sizing. Shopfinity saves me time and every season.",
+      "As a busy professional, I appreciate the fast delivery and reliable sizing. Shopfinity saves me time every season.",
     location: "Banani, Dhaka",
   },
   {
@@ -64,24 +64,31 @@ const testimonials = [
       "From casualwear to formal, Shopfinity always delivers quality. My entire wardrobe is now from this site!",
     location: "Sylhet Sadar, Sylhet",
   },
+  {
+    id: 9,
+    name: "Farzana Begum",
+    story:
+      "I’ve recommended Shopfinity to all my colleagues. The quality and price balance is just right.",
+    location: "Gulshan, Dhaka",
+  },
 ];
 
 const Testimonial = () => {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="text-center">
+    <div className="container mx-auto px-4 py-14 bg-white">
+      <div className="text-center ">
         <h1 className="text-4xl font-bold text-black">
           Testimonials & Success Stories
         </h1>
-        <p className="mt-4 text-lg text-gray-700">
+        <p className="mt-4 text-lg text-gray-700 ">
           Hear from happy customers about their favorite Shopfinity experiences.
         </p>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-12">
         <Swiper
           slidesPerView={3}
-          spaceBetween={20}
+          spaceBetween={25}
           breakpoints={{
             640: {
               slidesPerView: 1,
@@ -95,17 +102,16 @@ const Testimonial = () => {
           }}
           pagination={{ clickable: true }}
           modules={[Pagination]}
-          className="mySwiper"
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
-              <div className="shadow-lg p-6 bg-white rounded-lg border h-full flex flex-col justify-between text-center">
-                <FaQuoteLeft className="text-[#fea928]/40 text-2xl mb-4 mx-auto" />
+              <div className="transition-all duration-300 ease-in-out hover:-translate-y-2 hover:bg-gray-50 hover:shadow-xl shadow-md p-6 bg-white rounded-lg border flex flex-col justify-between h-full text-center">
+                <FaQuoteLeft className="text-[#fea928]/50 text-3xl mb-4 mx-auto" />
                 <p className="text-gray-600 italic mb-6">
                   "{testimonial.story}"
                 </p>
                 <div className="mt-auto">
-                  <h3 className="text-xl font-bold text-black">
+                  <h3 className="text-lg font-bold text-black">
                     {testimonial.name}
                   </h3>
                   <p className="text-sm text-gray-500">

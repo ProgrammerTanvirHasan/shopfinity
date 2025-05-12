@@ -1,5 +1,7 @@
-import Author from "../author/Author";
+import About from "../about/About";
+
 import Banner from "../banner/Banner";
+import FeaturedHighlight from "../FeaturedHighlight/FeaturedHighlight";
 
 import SellingProduct from "../sellingProduct/SellingProduct";
 import Style from "../style/Style";
@@ -10,9 +12,10 @@ const HomePage = () => {
   return (
     <div className="space-y-8 ">
       <Banner></Banner>
+      <About></About>
       <SellingProduct></SellingProduct>
+      <FeaturedHighlight></FeaturedHighlight>
       <TopRated></TopRated>
-      <Author></Author>
       <Testimonial></Testimonial>
       <Style></Style>
     </div>

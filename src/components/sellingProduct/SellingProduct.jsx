@@ -32,13 +32,13 @@ const products = [
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.1,
-      duration: 0.5,
+      delay: i * 0.5,
+      duration: 1,
       ease: "easeOut",
     },
   }),
@@ -53,26 +53,35 @@ const SellingProduct = () => {
           Discover the most popular outfits loved by our customers.
         </p>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        {products.map((product, index) => (
-          <motion.div
-            key={index}
-            className="bg-gray-100 rounded-lg p-4 shadow hover:shadow-lg transition"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={index}
-            variants={cardVariants}
-          >
-            <img
-              src={product.img}
-              alt={product.title}
-              className="w-48 h-68 object-cover rounded"
-            />
-            <h2 className="mt-4 text-lg font-semibold">{product.title}</h2>
-            <p className="text-sm text-gray-600">{product.description}</p>
-          </motion.div>
-        ))}
+
+      <div className="grid grid-cols-2 container mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        {products.map((product, index) => {
+          const isMiddle = index === 2; // middle index
+          return (
+            <motion.div
+              key={index}
+              className={`group bg-white rounded-xl shadow-md overflow-hidden relative transition-transform duration-300 text-center ${
+                isMiddle ? "scale-110 z-10" : ""
+              }`}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={index}
+              variants={cardVariants}
+              whileHover={{ scale: isMiddle ? 1.25 : 1.15, rotate: 1 }}
+            >
+              <img
+                src={product.img}
+                alt={product.title}
+                className={`mx-auto object-cover rounded ${
+                  isMiddle ? "w-52 h-72" : "w-48 h-68"
+                }`}
+              />
+              <h2 className="mt-4 text-lg font-semibold">{product.title}</h2>
+              <p className="text-sm text-gray-600">{product.description}</p>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );
