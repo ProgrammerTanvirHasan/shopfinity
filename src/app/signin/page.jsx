@@ -46,7 +46,7 @@ const SignIn = () => {
             </p>
           )}
 
-          {/* Email */}
+      
           <div>
             <label className="text-sm font-semibold text-gray-600">
               E-mail
@@ -59,7 +59,7 @@ const SignIn = () => {
             />
           </div>
 
-          {/* Password */}
+         
           <div className="relative">
             <label className="text-sm font-semibold text-gray-600">
               Password
@@ -78,7 +78,7 @@ const SignIn = () => {
             </div>
           </div>
 
-          {/* Forgot Password */}
+          
           <div className="text-right">
             <Link
               href="/forgot-password"
@@ -88,7 +88,7 @@ const SignIn = () => {
             </Link>
           </div>
 
-          {/* Submit */}
+       
           <button
             type="submit"
             className="w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded-full transition"
@@ -96,7 +96,7 @@ const SignIn = () => {
             Login
           </button>
 
-          {/* Signup Link */}
+          
           <p className="text-center text-sm text-gray-700">
             Don’t have an account?{" "}
             <Link href="/signup" className="text-red-600 font-semibold">

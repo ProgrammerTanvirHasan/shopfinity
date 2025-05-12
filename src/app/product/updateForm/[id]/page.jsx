@@ -13,7 +13,9 @@ const Page = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const resp = await fetch(`http://localhost:3000/api/products/${id}`);
+        const resp = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`
+        );
         const json = await resp.json();
         setData(json);
       } catch (error) {
@@ -43,7 +45,16 @@ const Page = ({ params }) => {
           `https://api.imgbb.com/1/upload?key=a9b9160b05e3d4e68e60f154f621c349`,
           formData
         );
-        postImage = response?.data?.data?.display_url;
+
+        if (response?.data?.data?.display_url) {
+          postImage = response.data.data.display_url;
+        } else {
+          return Swal.fire({
+            title: "Image Upload Failed",
+            text: "Could not upload image. Try again.",
+            icon: "error",
+          });
+        }
       } catch (err) {
         return Swal.fire({
           title: "Image Upload Failed",
@@ -62,7 +73,7 @@ const Page = ({ params }) => {
 
     try {
       const resp = await axios.post(
-        `${process.env.local.NEXT_PUBLIC_BASE_URL}/api/products/${id}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`,
         updateData,
         {
           headers: {

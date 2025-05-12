@@ -15,7 +15,7 @@ const Page = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          `http://localhost:3000/api/allRoute/${category}`
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/allRoute/${category}`
         );
         const data = await res.json();
         setProducts(data.products || []);

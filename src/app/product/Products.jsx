@@ -16,7 +16,7 @@ const Products = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          `http://localhost:3000/api/products?page=${currentPage}&limit=${itemsPerPage}`
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/products?page=${currentPage}&limit=${itemsPerPage}`
         );
         const data = await res.json();
         setProducts(data.products || []);
@@ -54,9 +54,12 @@ const Products = () => {
 
     if (result.isConfirmed) {
       try {
-        const resp = await fetch(`http://localhost:3000/api/products/${id}`, {
-          method: "DELETE",
-        });
+        const resp = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
 
         if (resp.ok) {
           Swal.fire({

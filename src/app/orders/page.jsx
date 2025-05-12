@@ -19,7 +19,9 @@ const OrdersPage = () => {
     const fetchOrders = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/cart?email=${email}`);
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/cart?email=${email}`
+        );
         const data = await res.json();
         setOrders(data.users || []);
       } catch (err) {
@@ -45,13 +47,16 @@ const OrdersPage = () => {
 
     if (confirm.isConfirmed) {
       try {
-        const res = await fetch(`/api/cart/${id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ userEmail: email }),
-        });
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/cart/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ userEmail: email }),
+          }
+        );
 
         if (res.ok) {
           setOrders((prev) => prev.filter((order) => order._id !== id));
@@ -70,7 +75,6 @@ const OrdersPage = () => {
   const handlePayment = async () => {
     setPaying(true);
 
-    
     const stripe = await loadStripe(
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
     );

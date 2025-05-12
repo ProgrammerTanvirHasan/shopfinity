@@ -56,7 +56,7 @@ const SellingProduct = () => {
 
       <div className="grid grid-cols-2 container mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {products.map((product, index) => {
-          const isMiddle = index === 2; // middle index
+          const isMiddle = index === 2;
           return (
             <motion.div
               key={index}

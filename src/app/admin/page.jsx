@@ -21,7 +21,7 @@ const AdminPage = () => {
         `https://api.imgbb.com/1/upload?key=a9b9160b05e3d4e68e60f154f621c349`,
         formData
       );
-      postImage = response.data.data.display_url;
+      postImage = response?.data?.data?.display_url;
     } catch (error) {
       Swal.fire({
         title: "Image Upload Failed",
@@ -35,7 +35,7 @@ const AdminPage = () => {
 
     try {
       const resp = await axios.post(
-        `http://localhost:3000/api/admin`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin`,
         postData,
         {
           headers: { "Content-Type": "application/json" },

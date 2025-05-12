@@ -66,7 +66,7 @@ const Style = () => {
 
   return (
     <div className="flex flex-col space-y-10 px-4 md:px-8 py-12 bg-[#fefefe]">
-      {/* Section Heading */}
+      
       <div className="text-center space-y-4">
         <h1 className="text-4xl font-bold text-gray-900">Shop by Style</h1>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -76,7 +76,7 @@ const Style = () => {
         </p>
       </div>
 
-      {/* Top Row - Left to Right */}
+      
       <div className="w-full">
         <Marquee speed={70} gradient={false}>
           <div className="p-6 flex gap-8">
@@ -98,7 +98,7 @@ const Style = () => {
         </Marquee>
       </div>
 
-      {/* Bottom Row - Right to Left */}
+      
       <div className="w-full">
         <Marquee speed={70} gradient={false} direction="right">
           <div className="p-6 flex gap-8">

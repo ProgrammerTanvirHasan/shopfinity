@@ -17,7 +17,9 @@ const Navbar = () => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const res = await fetch(`/api/product`);
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/product`
+        );
         const data = await res.json();
         setNotifications(data.users || []);
       } catch (err) {

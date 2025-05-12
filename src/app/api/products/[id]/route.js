@@ -1,13 +1,14 @@
-import { connectDB } from "@/lib/connectDB";
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
+import { connectDB } from "@/lib/connectDB";
 
 export const DELETE = async (request, { params }) => {
+  const { id } = await params;
   const db = await connectDB();
   const postCollection = db.collection("allPost");
   try {
     const resp = await postCollection.deleteOne({
-      _id: new ObjectId(params.id),
+      _id: new ObjectId(id),
     });
     return NextResponse.json(resp, { message: "product deleted" });
   } catch (error) {
@@ -39,6 +40,7 @@ export const GET = async (request, { params }) => {
 export const POST = async (request, { params }) => {
   const db = await connectDB();
   const postCollection = db.collection("allPost");
+  const { id } = await params;
 
   try {
     const body = await request.json();
@@ -54,7 +56,7 @@ export const POST = async (request, { params }) => {
     };
 
     const result = await postCollection.updateOne(
-      { _id: new ObjectId(params.id) },
+      { _id: new ObjectId(String(id)) },
       updateDoc
     );
 
