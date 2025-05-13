@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Shop Finity",
+  title: "SHOP FINITY",
   description: "Choose your best product",
 };
 
