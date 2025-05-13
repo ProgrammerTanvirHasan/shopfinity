@@ -4,15 +4,18 @@ import { FaFacebook } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { IoIosPhonePortrait } from "react-icons/io";
+import Link from "next/link";
 const Footer = () => {
   return (
     <div className="relative w-full h-[250px] bg-[#1A1A1A] text-white ">
       <div className="grid grid-cols-3 gap-4 container mx-auto flex pt-8 px-4">
         <div>
-          <div className="flex gap-2 py-2 ml-4 text-white items-center">
-            <FaShopify className="text-2xl text-orange-400" />
-            <p className="text-xl">Shopfinity</p>
-          </div>
+          <Link href={"/"}>
+            <div className="flex gap-2 py-2 ml-4 text-white items-center">
+              <FaShopify className="text-2xl" />
+              <p className="text-xl">Shopfinity</p>
+            </div>
+          </Link>
           <p className=" text-gray-500">
             Discover the most popular outfits loved by our customers.
           </p>

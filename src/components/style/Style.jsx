@@ -66,7 +66,6 @@ const Style = () => {
 
   return (
     <div className="flex flex-col space-y-10 px-4 md:px-8 py-12 bg-[#fefefe]">
-      
       <div className="text-center space-y-4">
         <h1 className="text-4xl font-bold text-gray-900">Shop by Style</h1>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -76,10 +75,9 @@ const Style = () => {
         </p>
       </div>
 
-      
       <div className="w-full">
         <Marquee speed={70} gradient={false}>
-          <div className="p-6 flex gap-8">
+          <div className="p-6 flex gap-2">
             {topCategories.map((cat, index) => (
               <Link href={cat.route} key={index}>
                 <div className="block shadow-lg rounded-xl overflow-hidden hover:scale-105 transition cursor-pointer">
@@ -98,12 +96,11 @@ const Style = () => {
         </Marquee>
       </div>
 
-      
       <div className="w-full">
         <Marquee speed={70} gradient={false} direction="right">
-          <div className="p-6 flex gap-8">
+          <div className="p-6 flex gap-2">
             {bottomCategories.map((cat, index) => (
-              <Link href={cat.route} key={index}>
+              <div key={index}>
                 <div className="block shadow-lg rounded-xl overflow-hidden hover:scale-105 transition cursor-pointer">
                   <img
                     src={cat.image}
@@ -114,7 +111,7 @@ const Style = () => {
                     {cat.title}
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </Marquee>
