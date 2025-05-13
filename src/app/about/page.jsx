@@ -31,7 +31,7 @@ const page = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
-      {/* Hero Section */}
+      
       <section className="relative w-full h-[70vh] overflow-hidden">
         <Image
           src="/images/about-hero.jpg" 
@@ -52,7 +52,7 @@ const page = () => {
         </div>
       </section>
 
-      {/* Brand Message */}
+
       <section className="max-w-6xl mx-auto px-4 py-16 space-y-6">
         <motion.h2
           className="text-4xl font-semibold"
@@ -75,7 +75,7 @@ const page = () => {
         </div>
       </section>
 
-      {/* Mission Section */}
+
       <section className="max-w-6xl mx-auto px-4 py-16 flex flex-col md:flex-row items-center gap-10">
         <motion.div
           className="md:w-1/2"
@@ -100,7 +100,7 @@ const page = () => {
         </div>
       </section>
 
-      {/* Testimonial */}
+      
       <section className="bg-gray-100 py-16 px-4">
         <motion.div
           className="max-w-4xl mx-auto text-center"
@@ -116,7 +116,7 @@ const page = () => {
         </motion.div>
       </section>
 
-      {/* Core Values */}
+     
       <section className="bg-gray-50 py-16 px-4">
         <motion.div
           className="max-w-6xl mx-auto text-center space-y-10"
@@ -149,7 +149,7 @@ const page = () => {
         </motion.div>
       </section>
 
-      {/* Behind the Scenes */}
+    
       <section className="max-w-6xl mx-auto px-4 py-20">
         <motion.div
           className="flex flex-col md:flex-row items-center gap-10"
@@ -177,7 +177,7 @@ const page = () => {
         </motion.div>
       </section>
 
-      {/* Newsletter Signup */}
+      
       <section className="bg-orange-50 py-20 px-4">
         <motion.div
           className="max-w-xl mx-auto text-center space-y-6"
@@ -211,7 +211,7 @@ const page = () => {
         </motion.div>
       </section>
 
-      {/* Footer */}
+      
       <footer className="pt-10 border-t border-gray-300 text-sm text-gray-600 text-center pb-6">
         Established with purpose. Created with care. Worn with pride.
       </footer>

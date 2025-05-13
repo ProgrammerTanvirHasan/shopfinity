@@ -10,9 +10,8 @@ export default function SuccessPage() {
   const sessionId = useSearchParams().get("session_id");
 
   useEffect(() => {
-  
     if (status === "authenticated" && sessionId && userEmail) {
-      fetch("/api/cart", {
+      fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/cart`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userEmail }),

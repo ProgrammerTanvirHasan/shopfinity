@@ -137,7 +137,7 @@ const Products = () => {
             </div>
           </div>
 
-          {/* Pagination */}
+       
           <div className="text-center mt-8 flex flex-wrap justify-center gap-2 items-center">
             <button
               onClick={handlePrev}

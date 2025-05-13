@@ -58,7 +58,6 @@ const NavigationBar = () => {
           </Link>
         ))}
 
-        {/* All Categorys Dropdown */}
         <div className="relative">
           <button
             onClick={() => setCategoryDropdown(!categoryDropdown)}
@@ -88,7 +87,6 @@ const NavigationBar = () => {
           )}
         </div>
 
-        {/* Admin or My Orders */}
         {user && isAdmin ? (
           <div className="relative">
             <button
@@ -153,7 +151,6 @@ const NavigationBar = () => {
         )}
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div className="top-full left-0 w-64 border-t lg:hidden z-50  absolute">
           <ul className="flex flex-col gap-4 p-4 text-black font-medium">
@@ -170,7 +167,6 @@ const NavigationBar = () => {
               </Link>
             ))}
 
-            {/* All Categorys Dropdown */}
             <div>
               <button
                 onClick={() => setCategoryDropdown(!categoryDropdown)}
@@ -201,7 +197,6 @@ const NavigationBar = () => {
               )}
             </div>
 
-            {/* Admin or My Orders */}
             {user && isAdmin ? (
               <div>
                 <button

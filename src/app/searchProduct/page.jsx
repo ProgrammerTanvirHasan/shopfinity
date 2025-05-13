@@ -1,34 +1,36 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const Page = () => {
-  const [products, setProducts] = useState([]);
+const searchProduct = () => {
+  const searchParams = useSearchParams();
+  const query = searchParams.get("query");
+  const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const session = useSession();
   const email = session?.data?.user?.email;
-  const category = "kids-ware";
-
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchResults = async () => {
       setLoading(true);
+      if (!query) return;
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/allRoute/${category}`
+          `${
+            process.env.NEXT_PUBLIC_BASE_URL
+          }/api/search?query=${encodeURIComponent(query)}`
         );
         const data = await res.json();
-        setProducts(data.products || []);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-        setProducts([]);
-      } finally {
+        setResults(data);
         setLoading(false);
+      } catch (error) {
+        console.error("Failed to fetch search results:", error);
       }
     };
 
-    fetchProducts();
-  }, [category]);
+    fetchResults();
+  }, [query]);
 
   const handleAddToCart = async (product) => {
     if (!email) {
@@ -73,9 +75,9 @@ const Page = () => {
   }
 
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="container mx-auto py-8 px-4 min-h-screen">
       <div className="space-y-6">
-        {products.map((product) => {
+        {results.map((product) => {
           return (
             <div
               key={product._id}
@@ -114,4 +116,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default searchProduct;

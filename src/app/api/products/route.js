@@ -15,7 +15,7 @@ export const GET = async (req) => {
 
     const posts = await postCollection
       .find()
-      .sort({ _id: -1 }) // newest products first
+      .sort({ _id: -1 }) 
       .skip(skip)
       .limit(limit)
       .toArray();
