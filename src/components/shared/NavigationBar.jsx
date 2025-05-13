@@ -87,7 +87,18 @@ const NavigationBar = () => {
           )}
         </div>
 
-        {user && isAdmin ? (
+        {user && (
+          <Link
+            href="/orders"
+            className={`hover:text-orange-300 ${
+              pathname === "/orders" ? "text-orange-500" : ""
+            }`}
+          >
+            My Product
+          </Link>
+        )}
+
+        {user && isAdmin && (
           <div className="relative">
             <button
               onClick={() => setAdminDropdown(!adminDropdown)}
@@ -121,16 +132,7 @@ const NavigationBar = () => {
               </div>
             )}
           </div>
-        ) : user ? (
-          <Link
-            href="/orders"
-            className={`hover:text-orange-300 ${
-              pathname === "/orders" ? "text-orange-500" : ""
-            }`}
-          >
-            My Product
-          </Link>
-        ) : null}
+        )}
       </ul>
 
       <div>
@@ -152,7 +154,7 @@ const NavigationBar = () => {
       </div>
 
       {menuOpen && (
-        <div className="top-full left-0 w-64 border-t lg:hidden z-50  absolute">
+        <div className="top-full left-0 w-64 border-t lg:hidden z-50 absolute">
           <ul className="flex flex-col gap-4 p-4 text-black font-medium">
             {commonLinks.map((link) => (
               <Link
@@ -197,7 +199,19 @@ const NavigationBar = () => {
               )}
             </div>
 
-            {user && isAdmin ? (
+            {user && (
+              <Link
+                href="/orders"
+                className={`hover:bg-slate-950 hover:text-white pl-2 rounded-xl ${
+                  pathname === "/orders" ? "text-orange-300" : ""
+                }`}
+                onClick={() => setMenuOpen(false)}
+              >
+                My Product
+              </Link>
+            )}
+
+            {user && isAdmin && (
               <div>
                 <button
                   onClick={() => setAdminDropdown(!adminDropdown)}
@@ -233,17 +247,7 @@ const NavigationBar = () => {
                   </div>
                 )}
               </div>
-            ) : user ? (
-              <Link
-                href="/orders"
-                className={`hover:bg-slate-950 hover:text-white pl-2 rounded-xl ${
-                  pathname === "/orders" ? "text-orange-300" : ""
-                }`}
-                onClick={() => setMenuOpen(false)}
-              >
-                My Product
-              </Link>
-            ) : null}
+            )}
           </ul>
         </div>
       )}

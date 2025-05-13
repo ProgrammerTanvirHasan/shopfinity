@@ -15,7 +15,7 @@ const About = () => {
           </p>
           <Link
             href={"/signup"}
-            className="inline-block mt-4 px-8 py-3 bg-gray-900 text-white text-lg font-medium rounded-full shadow-md hover:bg-gray-800 transition"
+            className="inline-block mt-4 px-8 py-3 bg-red-500/70 text-white text-lg font-medium rounded-full shadow-md hover:bg-gray-800 transition"
           >
             Register Now
           </Link>

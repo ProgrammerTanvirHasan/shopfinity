@@ -91,6 +91,9 @@ const Testimonial = () => {
           slidesPerView={3}
           spaceBetween={25}
           breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
             640: {
               slidesPerView: 1,
             },
@@ -106,7 +109,7 @@ const Testimonial = () => {
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
-              <div className="transition-all duration-300 ease-in-out hover:-translate-y-2 hover:bg-gray-50 hover:shadow-xl shadow-md p-6 bg-white rounded-lg border flex flex-col justify-between h-full text-center">
+              <div className="transition-all duration-300 w-screen ease-in-out hover:-translate-y-2 hover:bg-gray-50 hover:shadow-xl shadow-md p-6 bg-white rounded-lg border flex flex-col justify-between h-full text-center">
                 <FaQuoteLeft className="text-[#fea928]/50 text-3xl mb-4 mx-auto" />
                 <p className="text-gray-600 italic mb-6">
                   "{testimonial.story}"

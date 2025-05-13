@@ -83,7 +83,7 @@ const Banner = () => {
           <SwiperSlide key={index}>
             <div className="relative w-screen h-[75vh] flex justify-between lg:justify-around px-4 overflow-hidden">
               <div className="absolute top-0 right-0 w-full h-full -z-10">
-                <div className="bg-[#fea928]/40 w-[150%] h-[150%] rounded-3xl rotate-45 translate-x-1/4 -translate-y-1/2"></div>
+                <div className="bg-[#fea928]/40 w-[100%] h-[150%] rounded-3xl rotate-45 translate-x-1/4 -translate-y-1/2"></div>
               </div>
 
               <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center justify-between text-white text-center lg:text-left gap-6 z-10">

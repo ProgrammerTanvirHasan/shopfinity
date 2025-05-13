@@ -50,19 +50,19 @@ const Navbar = () => {
     <div className="flex bg-[#fea928]/40 justify-between items-center px-4 py-2 relative">
       <Link href="/">
         <div className="flex gap-2 text-white items-center">
-          <FaShopify className="text-2xl" />
-          <p className="text-xl">Shopfinity</p>
+          <FaShopify className="text-2xl text-indigo-700" />
+          <p className="text-xl text-indigo-900">Shopfinity</p>
         </div>
       </Link>
 
       <div className="flex items-center gap-4 ml-auto relative">
-        <form onSubmit={handleSearch} className="relative w-64">
+        <form onSubmit={handleSearch} className="relative ">
           <input
             type="text"
             placeholder="Search..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-3 pr-10 py-1 rounded-md border border-2 border-white focus:outline-none focus:ring-2 focus:ring-orange-300"
+            className="w-full pl-3 pr-10 py-1 rounded-md border border-4 border-white focus:outline-none focus:ring-2 focus:ring-orange-300"
           />
           <button
             type="submit"

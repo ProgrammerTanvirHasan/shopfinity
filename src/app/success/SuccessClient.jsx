@@ -47,7 +47,6 @@ const SuccessPage = () => {
           🎉 Payment Success!
         </h1>
         <p className="text-gray-700 text-lg">{message}</p>
-        <p className="text-sm text-gray-500 mt-4">Session ID: {sessionId}</p>
       </div>
     </div>
   );
