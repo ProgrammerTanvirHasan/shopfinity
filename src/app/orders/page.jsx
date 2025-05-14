@@ -133,7 +133,7 @@ const OrdersPage = () => {
         <div className="bg-white p-6 rounded-xl shadow-md overflow-x-auto">
           <table className="min-w-full border border-gray-200">
             <thead>
-              <tr className="bg-gray-100 text-left">
+              <tr className=" text-left">
                 <th className="px-4 py-3 border-b border-gray-200">Title</th>
                 <th className="px-4 py-3 border-b border-gray-200">Amount</th>
                 <th className="px-4 py-3 border-b border-gray-200">Action</th>
@@ -143,7 +143,7 @@ const OrdersPage = () => {
               {orders.map((order, index) => (
                 <tr
                   key={index}
-                  className="hover:bg-gray-50 transition-all duration-150"
+                  className=" hover:shadow hover:shadow-2xl  transition-all duration-150"
                 >
                   <td className="px-4 py-2 border-b border-gray-100">
                     {order.title || "N/A"}

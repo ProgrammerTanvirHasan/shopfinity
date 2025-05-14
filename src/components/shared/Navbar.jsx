@@ -94,16 +94,11 @@ const Navbar = () => {
                 {notifications.map((item, index) => (
                   <div
                     key={index}
-                    className="px-4 py-1 text-sm hover:bg-gray-100"
+                    className="px-4 py-1 text-sm hover:bg-black hover:text-white"
                   >
-                    <p className="text-sm text-gray-700">
-                      <span className="font-semibold text-gray-800">
-                        {item.userEmail}
-                      </span>{" "}
-                      booked{" "}
-                      <span className="font-medium text-gray-900">
-                        {item.title}
-                      </span>
+                    <p className="text-sm ">
+                      <span className="font-semibold ">{item.userEmail}</span>{" "}
+                      booked <span className="font-medium ">{item.title}</span>
                     </p>
                   </div>
                 ))}
