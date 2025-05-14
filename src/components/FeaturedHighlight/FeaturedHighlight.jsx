@@ -34,7 +34,7 @@ const FeaturedHighlight = () => {
   return (
     <section className="bg-white py-16">
       <h2 className="text-3xl font-semibold text-center text-black mb-10">
-        Flip Into Your Next Fashion Adventure
+        Flip Into Your Next Fashion Adventures
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6">
